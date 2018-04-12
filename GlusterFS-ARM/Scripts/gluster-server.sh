@@ -13,6 +13,7 @@ HPC_GROUP=hpc
 HPC_GID=7007
 # Parameters 
 JUMPBOX_NAME=$1
+SSH_PRIVATE_KEYDATA=$2
 
 #############################################################################
 
@@ -172,6 +173,15 @@ setup_glusterserver()
 
 	
 }
+setup_ssh()
+{
+	mkdir -p .ssh/
+	touch .ssh/id_rsa
+	echo "$SSH_PRIVATE_KEYDATA" >> .ssh/id_rsa
+	mv .ssh/id_rsa /home/adminuser/.ssh/
+	chown adminuser /home/adminuser/.ssh/id_rsa
+	chmod 700 /home/adminuser/.ssh/id_rsa
+}
 
 
 mkdir -p /var/local
@@ -189,7 +199,8 @@ fi
 
 raid0_volume
 setup_glusterserver
-setup_user
+setup_ssh
+#setup_user
 # Create marker file so we know we're configured
 touch $SETUP_MARKER
 exit 0
