@@ -375,18 +375,6 @@
               "frontendPortRangeEnd": "[variables('natEndPort')]",
               "backendPort": "[variables('natBackendPort')]"
             }
-          },
-          {
-            "name": "natpool2",
-            "properties": {
-              "frontendIPConfiguration": {
-                "id": "[variables('frontEndIPConfigID1')]"
-              },
-              "protocol": "tcp",
-              "frontendPortRangeStart": "9000",
-              "frontendPortRangeEnd": "9120",
-              "backendPort": "9000"
-            }
           }
         ]
       }
@@ -427,18 +415,6 @@
               "frontendPortRangeStart": "[variables('natStartPort')]",
               "frontendPortRangeEnd": "[variables('natEndPort')]",
               "backendPort": "[variables('natBackendPort')]"
-            }
-          },
-          {
-            "name": "natpool2",
-            "properties": {
-              "frontendIPConfiguration": {
-                "id": "[variables('frontEndIPConfigID2')]"
-              },
-              "protocol": "tcp",
-              "frontendPortRangeStart": "9000",
-              "frontendPortRangeEnd": "9120",
-              "backendPort": "9000"
             }
           }
         ]
